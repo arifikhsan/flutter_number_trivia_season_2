@@ -10,7 +10,9 @@ class Middleware extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: child);
+    return Center(
+      child: Container(child: child),
+    );
   }
 }
 
@@ -26,10 +28,6 @@ class Parent extends StatelessWidget {
 class Child extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Text('Hello there...'),
-      ),
-    );
+    return Text('Hello there...');
   }
 }
