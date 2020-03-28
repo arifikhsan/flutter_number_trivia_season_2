@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: NumberTriviaScreen(),
+      home: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: NumberTriviaScreen(),
+      ),
     );
   }
 }

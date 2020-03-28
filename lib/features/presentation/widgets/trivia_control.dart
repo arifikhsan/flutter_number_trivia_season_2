@@ -12,34 +12,50 @@ class TriviaControl extends StatefulWidget {
 }
 
 class _TriviaControlState extends State<TriviaControl> {
+  final TextEditingController textEditingController= TextEditingController();
+
   void _dispatchRandom() {
+    FocusScope.of(context).unfocus();
+    textEditingController.clear();
     BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
   }
 
   void _dispatchConcrete() {
-    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForConcreteNumber('123'));
+    FocusScope.of(context).unfocus();
+    BlocProvider.of<NumberTriviaBloc>(context)
+        .add(GetTriviaForConcreteNumber(textEditingController.text));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         children: <Widget>[
-          RaisedButton(
-            onPressed: _dispatchConcrete,
-            color: Colors.blue,
-            child: Text(
-              'Get Concrete',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
+          TextField(
+            controller: textEditingController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(hintText: 'Input a number'),
           ),
-          RaisedButton(
-            onPressed: _dispatchRandom,
-            child: Text('Get Random'),
+          SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              RaisedButton(
+                onPressed: _dispatchConcrete,
+                color: Colors.blue,
+                child: Text(
+                  'Get Concrete',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              RaisedButton(
+                onPressed: _dispatchRandom,
+                child: Text('Get Random'),
+              ),
+            ],
           ),
         ],
       ),
