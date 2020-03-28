@@ -65,6 +65,8 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
           yield Loaded(trivia: trivia);
         },
       );
+    } else if (event is ResetTrivia) {
+      yield Empty();
     }
   }
 }

@@ -18,3 +18,8 @@ class GetTriviaForRandomNumber extends NumberTriviaEvent {
   @override
   List<Object> get props => null;
 }
+
+class ResetTrivia extends NumberTriviaEvent {
+  @override
+  List<Object> get props => null;
+}

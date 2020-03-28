@@ -12,18 +12,27 @@ class TriviaControl extends StatefulWidget {
 }
 
 class _TriviaControlState extends State<TriviaControl> {
-  final TextEditingController textEditingController= TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
+
+  void _dismissKeyboard() {
+    FocusScope.of(context).unfocus();
+  }
 
   void _dispatchRandom() {
-    FocusScope.of(context).unfocus();
+    _dismissKeyboard();
     textEditingController.clear();
     BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
   }
 
   void _dispatchConcrete() {
-    FocusScope.of(context).unfocus();
+    _dismissKeyboard();
     BlocProvider.of<NumberTriviaBloc>(context)
         .add(GetTriviaForConcreteNumber(textEditingController.text));
+  }
+
+  void _dispatchReset() {
+    _dismissKeyboard();
+    BlocProvider.of<NumberTriviaBloc>(context).add(ResetTrivia());
   }
 
   @override
@@ -54,6 +63,10 @@ class _TriviaControlState extends State<TriviaControl> {
               RaisedButton(
                 onPressed: _dispatchRandom,
                 child: Text('Get Random'),
+              ),
+              FlatButton(
+                onPressed: _dispatchReset,
+                child: Text('Reset'),
               ),
             ],
           ),

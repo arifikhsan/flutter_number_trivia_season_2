@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TriviaMessage extends StatelessWidget {
+class TriviaError extends StatelessWidget {
   final String message;
 
-  const TriviaMessage({
+  const TriviaError({
     Key key,
     @required this.message,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class TriviaMessage extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             blurRadius: 8,
-            color: Colors.teal.shade300,
+            color: Colors.red.shade300,
           )
         ],
         color: Colors.white,
