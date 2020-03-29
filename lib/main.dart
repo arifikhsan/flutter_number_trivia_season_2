@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/core/injector.dart';
+import 'package:flutter_number_trivia/core/middleware/middleware.dart';
 import 'package:flutter_number_trivia/features/presentation/screens/number_trivia_screen.dart';
 
 Future<void> main() async {
@@ -13,8 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+      home: Middleware(
         child: NumberTriviaScreen(),
       ),
     );
