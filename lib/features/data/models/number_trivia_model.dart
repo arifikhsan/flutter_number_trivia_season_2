@@ -3,8 +3,8 @@ import 'package:flutter_number_trivia/features/domain/entities/number_trivia.dar
 
 class NumberTriviaModel extends NumberTrivia {
   NumberTriviaModel({
-    @required String text,
     @required int number,
+    @required String text,
   }) : super(text: text, number: number);
 
   factory NumberTriviaModel.fromJson(Map<String, dynamic> json) {
