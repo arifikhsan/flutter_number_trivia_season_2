@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_number_trivia/features/domain/entities/number_trivia.dart';
+import 'package:flutter_number_trivia/features/presentation/widgets/shared/white_board.dart';
 
 class TriviaLoaded extends StatelessWidget {
   final NumberTrivia numberTrivia;
@@ -11,20 +12,8 @@ class TriviaLoaded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: double.infinity,
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 8,
-            color: Colors.green.shade300,
-          )
-        ],
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
+    return WhiteBoard(
+      edgeColor: Colors.green.shade300,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
