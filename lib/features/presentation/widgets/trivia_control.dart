@@ -28,10 +28,12 @@ class _TriviaControlState extends State<TriviaControl> {
     _dismissKeyboard();
     BlocProvider.of<NumberTriviaBloc>(context)
         .add(GetTriviaForConcreteNumber(textEditingController.text));
+    textEditingController.clear();
   }
 
   void _dispatchReset() {
     _dismissKeyboard();
+    textEditingController.clear();
     BlocProvider.of<NumberTriviaBloc>(context).add(ResetTrivia());
   }
 
