@@ -6,8 +6,6 @@ import 'package:flutter_number_trivia/features/domain/usecases/get_random_number
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import 'get_concrete_number_trivia_test.dart';
-
 class MockNumberTriviaRepository extends Mock
     implements NumberTriviaRepository {}
 
