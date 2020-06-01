@@ -53,7 +53,8 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(locator()));
 
   //* External
-  final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
   locator.registerLazySingleton(() => sharedPreferences);
   locator.registerLazySingleton(() => Client());
   locator.registerLazySingleton(() => DataConnectionChecker());
